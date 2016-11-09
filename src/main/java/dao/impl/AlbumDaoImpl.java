@@ -40,7 +40,7 @@ public class AlbumDaoImpl implements AlbumDao {
 	@Override
 	public List<Album> buscarTodos() {
 		String jpql = "SELECT x FROM Album x";
-		Query query = em.createNamedQuery(jpql);
+		Query query = em.createQuery(jpql);
 		return query.getResultList();
 	}
 	
@@ -48,7 +48,7 @@ public class AlbumDaoImpl implements AlbumDao {
 	@Override
 	public List<Album> buscarPorArtista(Artista art) {
 		String jpql = "SELECT x FROM Album x WHERE x.artista = :p1";
-		Query query = em.createNamedQuery(jpql);
+		Query query = em.createQuery(jpql);
 		query.setParameter("p1", art);
 		return query.getResultList();
 	}

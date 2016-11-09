@@ -40,7 +40,7 @@ public class MusicaDaoImpl implements MusicaDao {
 	@Override
 	public List<Musica> buscarTodos() {
 		String jpql = "SELECT x FROM Musica x";
-		Query query = em.createNamedQuery(jpql);
+		Query query = em.createQuery(jpql);
 		return query.getResultList();
 	}
 
@@ -48,7 +48,7 @@ public class MusicaDaoImpl implements MusicaDao {
 	@Override
 	public List<Musica> buscarPorAlbum(Album alb) {
 		String jpql = "SELECT x FROM Musica x WHERE x.album = :p1";
-		Query query = em.createNamedQuery(jpql);
+		Query query = em.createQuery(jpql);
 		query.setParameter("p1", alb);
 		return query.getResultList();
 	}
